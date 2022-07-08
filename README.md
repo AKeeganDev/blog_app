@@ -10,6 +10,12 @@ In this project we will be using Ruby on Rails to implement a blog website using
 ## Run
 1) Navigate to the source folder in your terminal
 2) Open in your editor of choice
+3) run `bundle install`
+4) run `rails db:create`
+
+## Testing
+run the following after cloning the repository
+- `rspec`
 
 ## Authors
 
