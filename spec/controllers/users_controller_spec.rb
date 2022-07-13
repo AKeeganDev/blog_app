@@ -8,8 +8,13 @@ RSpec.describe 'Users', type: :request do
     end
   end
 
-  # it 'renders the index template' do
-  #   get users_path
-  #   expect
-  # end
+  it 'renders the index template' do
+    get users_path
+    expect(response).to render_template('index')
+  end
+
+  it 'placeholder text test' do
+    get users_path
+    expect(response.body).to include('user/index')
+  end
 end
