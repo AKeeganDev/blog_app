@@ -13,6 +13,11 @@ RSpec.describe 'Posts', type: :request do
     expect(response).to render_template('index')
   end
 
+  it 'renders the index template' do
+    get user_post_path(2, 1)
+    expect(response).to render_template(:show)
+  end
+
   it 'placeholder text test' do
     get user_posts_path(2)
     expect(response.body).to include('posts/index')
