@@ -1,2 +1,8 @@
-<h1>Hola, User</h1>
-<h2>Welcome to the post/show page</h2>
+<div class="post_body">
+  <%=render partial: 'partials/post_expanded', locals: { post:@post, user: @user }%>
+  <div class="post_comments">
+    <%for a in 1..5 do%>
+      <div><%="Username: Comment #{a}"%></div>
+    <%end%>
+  </div>
+</div>

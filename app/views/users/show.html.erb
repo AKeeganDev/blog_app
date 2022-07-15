@@ -1,2 +1,15 @@
-<h1>Hola, User</h1>
-<h2>Welcome to the user/showpage</h2>
+<div class='user_body'>
+<%=render partial: 'partials/user_card', locals: { user: @user }%>
+
+<div class='bio'>
+  <p>Bio</p>
+  <div class='bio_text'><%=@user.bio%></div>
+</div>
+
+<div class='top_post_list'>
+  <%@recent_posts.each_with_index do |post, index|%>
+  <%=render partial: 'partials/post_card', locals: { post: post, index: index, user: @user }%> 
+  <%end%>
+  <button type='button'><%= link_to "See all posts", user_posts_path(@user) %></button>
+<div>
+</div>

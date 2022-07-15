@@ -1,2 +1,13 @@
-<h1>Hola, User</h1>
-<h2>Welcome to the posts/index page</h2>
+
+<div class='user_body'>
+<%=render partial: 'partials/user_card', locals: { user: @user }%>
+
+<div class='top_post_list'>
+  <%@all_posts.each_with_index do |post, index|%>
+  <%=render partial: 'partials/post_card', locals: { post: post, index: index }%> 
+  <%for a in 1..5 do%>
+    <div><%="Username: Comment #{a}"%></div>
+  <%end%>
+  <%end%>
+</div>
+</div>
