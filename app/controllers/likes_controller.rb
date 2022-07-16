@@ -5,8 +5,8 @@ class LikesController < ApplicationController
     create_like unless liked?
   end
 
+  private
 
-  private 
   def liked?
     Like.where(user_id: @user.id, post_id: @post.id).exists?
   end
