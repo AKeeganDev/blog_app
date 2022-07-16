@@ -22,10 +22,10 @@ class PostsController < ApplicationController
     @post.user = current_user
 
     if @post.save
-      flash[:success] = "New Post saved successfully!"
+      flash[:success] = 'New Post saved successfully!'
       redirect_to user_posts_path(current_user)
     else
-      flash.now[:error] = "Post failed.."
+      flash.now[:error] = 'Post failed..'
       render :new
     end
   end
