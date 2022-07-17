@@ -5,9 +5,10 @@
 <div class='top_post_list'>
   <%@all_posts.each_with_index do |post, index|%>
   <%=render partial: 'partials/post_card', locals: { post: post, index: index }%> 
-  <%for a in 1..5 do%>
-    <div><%="Username: Comment #{a}"%></div>
+  <%post.recent_comments.each do |comment|%>
+      <div><%="#{comment.user.name}: #{comment.text}"%></div>
+    <%end%>
   <%end%>
-  <%end%>
+  <button type='button'><%= link_to "Create new post", new_user_post_path(@user) %></button>
 </div>
 </div>

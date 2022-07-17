@@ -1,0 +1,5 @@
+<%= form_with model: @comment, url: "/users/#{user.id}/posts/#{post.id}/comments", method: :post, html: { class: "submit"} do |form|%>
+  <%=form.label :text%>
+  <%=form.text_area :text, size: "60x10"%>
+  <%=form.submit%>
+<% end %>

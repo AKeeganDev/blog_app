@@ -3,5 +3,5 @@
   <%= link_to "Post ##{index + 1}", user_post_path(@user, post)%>
   </div>
   <div class='post_text'><%="#{post.text}"%></div>
-  <div class='post_details'>Comments: x, Likes: y</div>
+  <div class='post_details'><%="Comments: #{post.comments_counter}, Likes: #{post.likes_counter}"%></div>
 </div>
