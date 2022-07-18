@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Post, type: :model do
   user = User.create(name: 'Henry', photo: 'https://www.coolpicturehostingsite.com/', bio: 'Pretty cool guy!')
 
-  subject { Post.new(user: user, title: 'Cool title', text: 'Sweet text') }
+  subject { Post.new(user:, title: 'Cool title', text: 'Sweet text') }
 
   before { subject.save }
 

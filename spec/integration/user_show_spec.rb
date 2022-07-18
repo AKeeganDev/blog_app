@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'User Show', type: :system do
   user = User.first
-  for a in 1..3 do Post.create(user: user, title: "some title #{a+1}", text: "some text #{a+1}") end
+  (1..3).each { |a| Post.create(user:, title: "some title #{a + 1}", text: "some text #{a + 1}") }
 
   it 'can see the users profile picture' do
     visit user_path(user.id)
@@ -25,7 +25,7 @@ RSpec.describe 'User Show', type: :system do
   end
 
   it 'can see 3 recent posts' do
-    posts = user.recent_posts.map{|post| post.text}
+    posts = user.recent_posts.map(&:text)
     visit user_path(user.id)
     expect(page.body).to include(*posts)
   end
@@ -37,7 +37,7 @@ RSpec.describe 'User Show', type: :system do
 
   it 'Checks navigation from clicking see all posts button' do
     visit user_path(user.id)
-    click_button ('See all posts')
+    click_button('See all posts')
     expect(current_path).to eq user_posts_path(user.id)
   end
 end

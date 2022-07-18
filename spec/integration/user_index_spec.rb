@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'User index', type: :system do
-  users = User.all.map{|user| user.name}
+  users = User.all.map(&:name)
   it 'can see the users profile picture' do
     visit users_path
     expect(page.body).to include('img_placeholder')
@@ -20,7 +20,7 @@ RSpec.describe 'User index', type: :system do
   it 'Checks navigation from clicking link to user profile' do
     user = User.first
     visit '/users'
-    click_on (user.name)
+    click_on(user.name)
     expect(current_path).to eq '/users/1'
   end
 end

@@ -52,13 +52,13 @@ gem 'xmpp4r'
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
-gem "bullet", group: 'development', require: true
+gem 'bullet', group: 'development', require: true
 
 group :development, :test do
-  gem 'rails-controller-testing'
-  gem "database_cleaner"
-  gem 'rspec-rails'
   gem 'capybara'
+  gem 'database_cleaner'
+  gem 'rails-controller-testing'
+  gem 'rspec-rails'
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri mingw x64_mingw]
 end
@@ -72,7 +72,7 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
-  gem 'capybara'
+  # gem 'capybara'
   gem 'webdrivers'
 end
 
