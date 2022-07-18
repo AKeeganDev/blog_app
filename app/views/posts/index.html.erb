@@ -5,7 +5,7 @@
 <div class='top_post_list'>
   <%@all_posts.each_with_index do |post, index|%>
   <%=render partial: 'partials/post_card', locals: { post: post, index: index }%> 
-  <%post.recent_comments.each do |comment|%>
+  <%post.recent_comments.includes([:user]).each do |comment|%>
       <div><%="#{comment.user.name}: #{comment.text}"%></div>
     <%end%>
   <%end%>

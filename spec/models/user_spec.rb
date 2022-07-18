@@ -19,6 +19,7 @@ RSpec.describe User, type: :model do
   end
 
   it ':recent posts should return 3 posts even if there are more posts to gather' do
+    subject.save
     Post.create(user: subject, title: 'Cool title', text: 'text for post 1')
     Post.create(user: subject, title: 'Cool title x2', text: 'text for post 2')
     Post.create(user: subject, title: 'Cool title x3', text: 'text for post 3')
