@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Post index', type: :system do
+RSpec.describe 'User index', type: :system do
   users = User.all.map{|user| user.name}
   it 'can see the users profile picture' do
     visit users_path
@@ -9,7 +9,6 @@ RSpec.describe 'Post index', type: :system do
 
   it 'can see all users from the database displayed on the home page' do
     visit users_path
-    sleep(3)
     expect(page.body).to include(*users)
   end
 
