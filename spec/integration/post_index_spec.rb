@@ -4,10 +4,6 @@ RSpec.describe 'Post index', type: :system do
   user = User.first
   post = Post.find(1)
   comment = Comment.create(user:, post:, text: 'some text')
-  # it 'can see the users profile picture' do
-  #     visit user_post_path(user, post)
-  #     expect(page.body).to include('img_placeholder')
-  # end
 
   it 'can see the current user name' do
     visit user_post_path(user, post)
