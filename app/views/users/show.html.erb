@@ -11,5 +11,6 @@
   <%=render partial: 'partials/post_card', locals: { post: post, index: index, user: @user }%> 
   <%end%>
   <button type='button'><%= link_to "See all posts", user_posts_path(@user) %></button>
+  <%= button_to "Sign out", destroy_user_session_path, method: :delete %>
 <div>
 </div>
