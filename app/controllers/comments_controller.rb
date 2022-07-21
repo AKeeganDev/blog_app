@@ -27,4 +27,8 @@ class CommentsController < ApplicationController
     render :new
     p params
   end
+
+  def destroy(id)
+    Comment.destroy(id)
+  end
 end

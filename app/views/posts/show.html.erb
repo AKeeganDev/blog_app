@@ -2,6 +2,8 @@
   <%=render partial: 'partials/post_expanded', locals: { post:@post, user: @user }%>
   <%= form_with url: "/users/#{@user.id}/posts/#{@post.id}/likes" do |like|%>
   <%=like.submit "Like Post"%>
+  <%if can? :manage, @post%>
+  <%end%>
   <div class="post_comments">
   <div>Comments </div>
     <%@comments.each do |comment|%>
@@ -11,3 +13,4 @@
 <% end %>
 <button type='button'><%= link_to "Comment", new_user_post_comment_path(@user, @post) %></button>
 </div>
+<%= button_to "Delete Post", "/users/#{@user.id}/posts/#{@post.id}", method: :delete %>

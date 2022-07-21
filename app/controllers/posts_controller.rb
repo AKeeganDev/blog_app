@@ -29,4 +29,17 @@ class PostsController < ApplicationController
       render :new
     end
   end
+
+  def destroy
+    return unless current_user.is? 'user' || 'admin'
+    @post = Post.find(params[:id])
+    @comments = Comment.includes([:user]).where(post_id: params[:id])
+    @likes = Like.includes([:user]).where(post_id: (params[:id]))
+    p "I got this far"
+    Like.destroy(@likes.ids)
+    @comments.each{|comment| comment.destroy(comment)}
+    @post.destroy(@post)
+
+    redirect_to user_posts_path(current_user)
+  end
 end
