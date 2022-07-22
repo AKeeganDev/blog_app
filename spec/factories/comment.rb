@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :comment do
-    return
+    # allows factory to create Comment
   end
 end

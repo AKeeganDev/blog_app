@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :user do
-    return
+    # allows factory to create Comment
   end
 end
