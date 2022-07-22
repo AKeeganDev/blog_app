@@ -31,15 +31,16 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    return unless current_user.is? 'user' || 'admin'
+    @user = User.find(params[:user_id])
     @post = Post.find(params[:id])
-    @comments = Comment.includes([:user]).where(post_id: params[:id])
-    @likes = Like.includes([:user]).where(post_id: (params[:id]))
-    p "I got this far"
-    Like.destroy(@likes.ids)
-    @comments.each{|comment| comment.destroy(comment)}
-    @post.destroy(@post)
-
+    @comments = @post.comments
+    @likes = @post.likes
+    @likes.destroy_all
+    @comments.destroy_all
+    @post.destroy
+    @user.decrement(:posts_counter)
+    @user.save
+    
     redirect_to user_posts_path(current_user)
   end
 end
