@@ -13,4 +13,19 @@ Rails.application.routes.draw do
       resources :likes, only: [:create, :destroy]
     end
   end
+
+  # namespace :api do
+  #   namespace :v1 do
+  #     devise_for :users, :skip => [:registrations, :passwords, :confirmations ]
+  #     resources :posts, only: [:index]
+  #   resources :comments, only: [:index, :create]
+  namespace :api do
+    namespace :v1 do
+      resources :users do
+        resources :posts do
+          resources :comments
+        end
+      end
+    end
+  end
 end
