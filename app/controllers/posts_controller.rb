@@ -40,7 +40,7 @@ class PostsController < ApplicationController
     @post.destroy
     @user.decrement(:posts_counter)
     @user.save
-    
+
     redirect_to user_posts_path(current_user)
   end
 end
