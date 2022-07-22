@@ -5,8 +5,8 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.xml { render :xml => @users}
-      format.json { render :json => @users}
+      format.xml { render xml: @users }
+      format.json { render json: @users }
     end
   end
 
@@ -17,8 +17,8 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.xml { render :xml => @user.posts}
-      format.json { render :json => @user}
+      format.xml { render xml: @user.posts }
+      format.json { render json: @user }
     end
   end
 end

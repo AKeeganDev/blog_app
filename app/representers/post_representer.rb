@@ -9,7 +9,7 @@ class PostRepresenter
       success: true,
       message: 'Successfully loaded all posts',
       data:
-        { posts: 
+        { posts:
             @posts.map do |post|
               p post
               {
@@ -18,12 +18,12 @@ class PostRepresenter
                 username: post.user.name,
                 text: post.text
               }
-            end 
-        }, 
+            end },
       status: :ok
     }
   end
 
   private
+
   attr_reader :posts
 end

@@ -14,8 +14,8 @@ class User < ApplicationRecord
     posts.order(created_at: :desc).limit(3)
   end
 
-  def as_json(options={})
-  super(:only => [id, :name, :email, :role, :posts_counter ])
+  def as_json(_options = {})
+    super(only: [id, :name, :email, :role, :posts_counter])
   end
 
   def is?(requested_role)

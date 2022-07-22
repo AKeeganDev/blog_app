@@ -4,9 +4,8 @@ module Api
       include ActionController::HttpAuthentication::Token
       def index
         @comments = Comment.where(post_id: params[:post_id]).where(user_id: params[:user_id]).order(:created_at)
-        # @comments = Comment.all
-        # 2 16
-        render json: { code: 200, success: true, message: 'Successfully loaded comments', data: { comments: @comments } }
+        render json: { code: 200, success: true, message: 'Successfully loaded comments',
+                       data: { comments: @comments } }
       end
 
       def create
@@ -17,14 +16,12 @@ module Api
 
         if @comment.save
           render json: { success: true, message: 'Successfully created comment', data: { comment: @comment } },
-          status: :created
+                 status: :created
 
         else
           render json: { success: false, errors: @comment.errors }, status: :unprocessable_entity
         end
       end
-
-      
 
       private
 
