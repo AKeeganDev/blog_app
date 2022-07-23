@@ -11,6 +11,9 @@ gem 'rubocop', '>= 1.0', '< 2.0'
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem 'sprockets-rails'
 
+gem 'bcrypt'
+gem 'rack-cors'
+
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 1.1'
 
@@ -63,6 +66,7 @@ gem 'jwt'
 group :development, :test do
   gem 'capybara'
   gem 'database_cleaner'
+  gem 'dotenv-rails'
   gem 'factory_bot_rails'
   gem 'rails-controller-testing'
   gem 'rspec-rails'
