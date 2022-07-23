@@ -58,9 +58,12 @@ gem 'cancancan'
 
 gem 'bullet', group: 'development', require: true
 
+gem 'jwt'
+
 group :development, :test do
   gem 'capybara'
   gem 'database_cleaner'
+  gem 'factory_bot_rails'
   gem 'rails-controller-testing'
   gem 'rspec-rails'
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
